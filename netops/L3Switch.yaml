@@ -12,7 +12,7 @@
 #        - enable
 #       provider:
 #         authorize: yes
-#         auth_pass: 357Maximum!
+#         auth_pass: ***********
 
    - name: Copy AAA Settings
      ios_config:
