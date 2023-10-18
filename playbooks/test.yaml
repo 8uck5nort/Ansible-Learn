@@ -1,0 +1,15 @@
+
+---
+
+- name: test.yaml
+  hosts: L3Switches
+  gather_facts: false
+  connection:  ssh
+
+  tasks:
+    - name: show ip arp
+      ios_command: 
+         commands='show ip arp'
+      register: out
+
+
