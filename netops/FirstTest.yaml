@@ -5,11 +5,11 @@
   gather_facts: false
 
   tasks:
-    - name: show ip arp
+    name: show ip arp
       ios_command: 
          commands='show ip arp'
-      register: out
+    register: out
 
-    - name: Display result to terminal window
-      debug:
-        var: out.stdout_lines
+    name: Display result to terminal window
+    debug:
+      var: out.stdout_lines
