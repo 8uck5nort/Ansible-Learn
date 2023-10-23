@@ -1,0 +1,15 @@
+---
+
+- name: FirstTest.yaml
+  hosts: L3Switches
+  gather_facts: false
+
+  tasks:
+    - name: show ip arp
+      ios_command: 
+         commands='show ip arp'
+      register: out
+
+    - name: Display result to terminal window
+      debug:
+        var: out.stdout_lines
