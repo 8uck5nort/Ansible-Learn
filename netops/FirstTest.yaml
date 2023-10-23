@@ -7,7 +7,8 @@
   tasks:
     name: show ip arp
       ios_command: 
-         commands: show ip arp
+         commands: 
+           - show ip arp
     register: out
 
     name: Display result to terminal window
