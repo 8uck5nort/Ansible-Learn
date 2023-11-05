@@ -45,7 +45,7 @@
 
 
  - hosts: L2Switches
-   connection: network_cli
+#  connection: network_cli
    gather_facts: false
    vars:
      command_list:
