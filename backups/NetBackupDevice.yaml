@@ -9,8 +9,8 @@
     - name: Determine that both AAP and Machine credentials are set
       ansible.builtin.assert:
         that:
-        #  - "lookup('env', 'CONTROLLER_USERNAME') !=''"
-          - "lookup('env', 'west-srv-app.pthwavessp.com_USERNAME') !=''"
+          - "lookup('env', 'CONTROLLER_USERNAME') !=''"
+        #  - "lookup('env', 'west-srv-app.pthwavessp.com_USERNAME') !=''"
         fail_msg:
           - "This Job requires two credentials"
           - "Red Hat Ansible Automation Platform credential is not set"
@@ -19,9 +19,9 @@
     - name: Determine that both AAP and Machine credentials are set
       ansible.builtin.debug:
         msg:
-          - "{{ lookup('env', 'west-srv-app.pthwavessp.com_USERNAME') }}"
-          - "{{ lookup('env', 'west-srv-app.pthwavessp.com_PASSWORD') }}"
-          - "{{ lookup('env', 'west-srv-app.pthwavessp.com_HOST') }}"
+          - "{{ lookup('env', 'CONTROLLER_USERNAME') }}"
+          - "{{ lookup('env', 'CONTROLLER_PASSWORD') }}"
+          - "{{ lookup('env', 'CONTROLLER_HOST') }}"
 
     - name: Backup configuration
       ansible.builtin.include_role:
