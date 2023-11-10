@@ -2,20 +2,14 @@
 
  - hosts: L3Switches
    gather_facts: true
-   connection: local
-
+   
    tasks:
     - name: show run 
     cisco.ios.ios_command:
     commands:
       - show run 
       host: "{{ ansible_host }}"
-      ansible_user=*********
-      ansible_password=************
-      ansible_become=yes
-      ansible_become_method=enable
-      ansible_become_password=**********
-      register: config
+     register: config
 
    - name: save output to /etc/ansible/backups 
    copy: 
