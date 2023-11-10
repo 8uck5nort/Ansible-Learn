@@ -25,8 +25,8 @@
 
     - name: Backup configuration
       ansible.builtin.include_role:
-        # name: "../roles/backup"
-        name: "../backups"
+        name: "../roles/backup"
+        # name: "../backups"
       when: ansible_network_os is defined
 
     - name: Create time stamp for play
