@@ -1,0 +1,18 @@
+---
+- name: Get password from secret server
+  hosts: localhost
+  gather_facts: no
+  vars:
+    tss_secret_id: '<tss_secret_id>'  
+    tss_username: '<tss_username>'
+    tss_password: '<tss_password>'
+    tss_server_url: '<tss_url>'
+
+  tasks:
+    - name: Get password from Secret Server
+      vars:
+        ansible_lookup_tss_username: "{{ tss_username }}"
+        ansible_lookup_tss_password: "{{ tss_password }}"
+        ansible_lookup_tss_server_uri: "{{ tss_server_url }}"
+      debug:
+        msg: "{{ lookup('community.general.tss', tss_secret_id, field='password') }}"

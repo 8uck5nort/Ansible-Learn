@@ -1,0 +1,23 @@
+---
+ 
+- name: Pull SS SNMP
+  hosts: localhost
+  vars:
+      secret: >-
+        {{
+            lookup(
+                'community.general.tss',
+                7117,
+                base_url='https://lci1.secretservercloud.com/',
+                username='{{ myUsername }}',
+                password='{{ myPassword }}'
+            )
+        }}
+  tasks:
+      - ansible.builtin.debug:
+          msg: >
+            the password is {{
+              (secret['items']
+                | items2dict(key_name='SNMP Community String',
+                             value_name='Password'))['password']
+            }}
